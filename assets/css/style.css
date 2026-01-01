@@ -420,3 +420,47 @@ label{font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(
   .hero-cta .btn{width:100%}
   .gallery{grid-template-columns: 1fr}
 }
+
+/* Language switcher */
+.lang-switch{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:4px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.02);
+}
+.lang-btn{
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  font-size:12px;
+  letter-spacing:.08em;
+  padding:8px 10px;
+  border-radius:999px;
+  cursor:pointer;
+  transition: background var(--t), color var(--t);
+}
+.lang-btn:hover{background:rgba(255,255,255,.06); color:var(--text)}
+.lang-btn.is-active{
+  background:var(--accent);
+  color:#111;
+}
+
+/* Mobile: show language selector inside drawer, hide in header to avoid crowding */
+.mobile-lang{justify-content:flex-start; width:max-content}
+@media (max-width: 860px){
+  .header-actions .lang-switch{display:none}
+  .mobile-lang{display:flex}
+}
+@media (min-width: 861px){
+  .mobile-lang{display:none}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{scroll-behavior:auto !important}
+  .btn, .icon-btn, .artist, .card-media, .thumb{transition:none !important}
+}
+
+.input, textarea, select.input{color:var(--text)}
