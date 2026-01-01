@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="zh-Hans" data-lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="预约 — 预约" />
+  <title>预约 — 预约</title>
+  <link rel="icon" href="assets/img/logo.svg" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    /* i18n */
+    .lang-switch{display:flex;gap:8px;align-items:center}
+    .lang-switch .lang-btn{border:1px solid rgba(255,255,255,.25);background:transparent;color:inherit;padding:6px 10px;border-radius:999px;font-size:12px;cursor:pointer}
+    .lang-switch .lang-btn[aria-pressed="true"]{background:rgba(255,255,255,.12)}
+    @media (max-width: 720px){ .lang-switch{display:none;} }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">跳到主要内容</a>
+<header class="site-header" data-header>
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="回到首頁" data-i18n-attr="aria-label:a11y.backHome">
+        <img class="brand-logo" src="assets/img/logo.svg" alt="Studio Logo" />
+      </a>
+
+      <nav class="site-nav" aria-label="主選單">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html" data-i18n="nav.home">首页</a></li>
+          <li><a class="nav-link" href="tattoo.html" data-i18n="nav.tattoo">纹身</a></li>
+          <li><a class="nav-link" href="barber.html" data-i18n="nav.barber">理发</a></li>
+          <li><a class="nav-link" href="artists.html" data-i18n="nav.artists">创办人</a></li>
+          <li><a class="nav-link" href="about.html" data-i18n="nav.about">关于</a></li>
+          <li><a class="nav-link" href="contact.html" data-i18n="nav.contact">联系</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-primary" href="https://wa.me/60176775237" data-wa data-i18n="cta.bookNow">立即预约</a>
+        <div class="lang-switch" role="group" aria-label="Language switch">
+          <button class="lang-btn" type="button" data-lang-btn="zh" aria-pressed="true">中文</button>
+          <button class="lang-btn" type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+          <button class="lang-btn" type="button" data-lang-btn="ms" aria-pressed="false">BM</button>
+        </div>
+        <button class="icon-btn menu-btn" type="button"
+                aria-label="打開選單" data-i18n-attr="aria-label:a11y.openMenu"
+                aria-controls="mobileMenu"
+                aria-expanded="false"
+                data-menu-button>
+          <span class="menu-icon" aria-hidden="true"><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-drawer" id="mobileMenu" hidden data-mobile-menu>
+      <nav class="mobile-nav" aria-label="手機選單">
+        <a class="mobile-link" href="index.html" data-i18n="nav.home">首页</a>
+        <a class="mobile-link" href="tattoo.html" data-i18n="nav.tattoo">纹身</a>
+        <a class="mobile-link" href="barber.html" data-i18n="nav.barber">理发</a>
+        <a class="mobile-link" href="artists.html" data-i18n="nav.artists">创办人</a>
+        <a class="mobile-link" href="about.html" data-i18n="nav.about">关于</a>
+        <a class="mobile-link" href="contact.html" data-i18n="nav.contact">联系</a>
+        <div class="mobile-cta">
+          <a class="btn btn-primary btn-block" href="https://wa.me/60176775237" data-wa data-i18n="cta.bookNow">立即预约</a>
+        </div>
+        <div class="mobile-social">
+          <a class="social-link" href="#" aria-label="Instagram">IG</a>
+          <a class="social-link" href="#" aria-label="Facebook">FB</a>
+          <a class="social-link" href="#" aria-label="小紅書">RED</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow" data-i18n="page.book.html.eyebrow">Book</p>
+        <h1 class="page-title" data-i18n="page.book.html.title">立即预约</h1>
+        <p class="page-lead" data-i18n="page.book.html.lead">你可以把本页接到外部预约系统（Fresha/Calendly/WhatsApp），或做内建表单。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container prose">
+        <h2 class="section-title">方案 A — 外部预约</h2>
+        <p class="muted">（占位）把按钮连接到你的预约系统或 WhatsApp。</p>
+        <div style="margin:12px 0 26px">
+          <a class="btn btn-primary" href="#" data-i18n="cta.openBooking">打开预约</a>
+        </div>
+
+        <h2 class="section-title">方案 B — 表单</h2>
+        <p class="muted">（占位）如需内建，我可以帮你做更完整字段（风格、部位、尺寸、参考图上传）。</p>
+        <a class="btn btn-ghost" href="contact.html" data-i18n="nav.contact">使用联系表单</a>
+      </div>
+    </section>
+  </main>
+<footer class="site-footer" aria-label="頁尾資訊">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h3 class="footer-title">工作室</h3>
+        <p class="footer-text">
+          <a class="footer-link" href="https://maps.google.com/?q=YOUR+ADDRESS" target="_blank" rel="noopener">
+            （填入地址）123 Main Street, City, Country
+          </a>
+        </p>
+        <p class="footer-text"><a class="footer-link" href="tel:+60123456789">+60 12-345 6789</a></p>
+        <p class="footer-text">周一至周日 • 12:00–20:00</p>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-title">导航</h3>
+        <ul class="footer-list">
+          <li><a class="footer-link" href="tattoo.html" data-i18n="nav.tattoo">Tattoo</a></li>
+          <li><a class="footer-link" href="barber.html" data-i18n="nav.barber">Barber</a></li>
+          <li><a class="footer-link" href="artists.html" data-i18n="nav.artists">Artists</a></li>
+          <li><a class="footer-link" href="advice.html" data-i18n="nav.advice">Advice</a></li>
+          <li><a class="footer-link" href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-title">关注我们</h3>
+        <div class="footer-social">
+          <a class="social-icon" href="#" aria-label="Instagram">IG</a>
+          <a class="social-icon" href="#" aria-label="Facebook">FB</a>
+          <a class="social-icon" href="#" aria-label="小紅書">RED</a>
+        </div>
+        <p class="footer-small">© <span data-year></span> 纹身与理发工作室。保留所有权利。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+
+  <script>
+    // Lightweight i18n (zh / en / ms)
+    window.__i18n = {
+      zh: {
+        'nav.home':'首页',
+        'nav.tattoo':'纹身',
+        'nav.barber':'理发',
+        'nav.artists':'创办人',
+        'nav.about':'关于',
+        'nav.contact':'联系',
+        'nav.advice':'建议',
+        'cta.bookNow':'立即预约',
+        'cta.openBooking':'打开预约',
+        'cta.sendWhatsApp':'发送到 WhatsApp',
+        'cta.viewTattoo':'查看纹身作品',
+        'cta.viewBarber':'查看理发作品',
+        'cta.learnMore':'了解更多',
+        'cta.seeMore':'查看更多',
+        'a11y.skip':'跳到主要内容',
+        'a11y.openMenu':'打开菜单',
+        'a11y.backHome':'返回首页',
+        'home.eyebrow':'梦鲤 Meng Li Hair&Tattoo',
+        'home.title':'梦鲤 Meng Li Hair&Tattoo',
+        'home.subtitle':'黑与玫瑰金的极简风格，用作品与细节说话。',
+        'home.note':'可现场（视情况）• 建议预约',
+        'home.meetFounders':'认识创办人',
+        'home.bookTime':'预约你的时间',
+        'home.bookDesc':'体验纹身与造型的最佳状态。',
+        'form.name':'姓名',
+        'form.namePh':'你的姓名',
+        'form.contact':'联系方式',
+        'form.contactPh':'电话 / 微信 / IG / Email',
+        'form.service':'服务类型',
+        'form.message':'需求说明',
+        'form.messagePh':'想做的风格、部位、预算、时间',
+
+        'page.about.html.eyebrow':'关于',
+        'page.about.html.title':'我们的工作室｜梦鲤 Meng Li Hair & Tattoo',
+        'page.about.html.lead':'本页用于建立信任：理念、卫生安全、工作流程、为什么值得被预约。',
+
+        'page.artists.html.eyebrow':'团队',
+        'page.artists.html.title':'创办人',
+        'page.artists.html.lead':'以作品与专业说话。两位创办人共同建立标准：工艺、审美与体验。',
+
+        'page.barber.html.eyebrow':'理发',
+        'page.barber.html.title':'理发服务',
+        'page.barber.html.lead':'理发服务与价目表（先放示意版），后续你给实际项目与价格，我再帮你排成更高级的版面。',
+
+        'page.tattoo.html.eyebrow':'纹身',
+        'page.tattoo.html.title':'纹身作品集',
+        'page.tattoo.html.lead':'用作品说话。本页先放作品墙与分类骨架，后续你提供作品，我再替你整理分类与灯箱展示。',
+
+        'page.contact.html.eyebrow':'联系',
+        'page.contact.html.title':'联系与咨询',
+        'page.contact.html.lead':'填写表单后将直接跳转 WhatsApp 发送给我们，亦可通过下方信息找到工作室。',
+
+        'page.book.html.eyebrow':'Book',
+        'page.book.html.title':'立即预约',
+        'page.book.html.lead':'你可以把本页接到外部预约系统（Fresha/Calendly/WhatsApp），或做内建表单。',
+
+        'page.advice.html.eyebrow':'Advice',
+        'page.advice.html.title':'术后护理与保养',
+        'page.advice.html.lead':'纹身护理与造型保养。本页适合做 SEO，也能降低客户不安感。'
+      },
+      en: {
+        'nav.home':'Home',
+        'nav.tattoo':'Tattoo',
+        'nav.barber':'Barber',
+        'nav.artists':'Founders',
+        'nav.about':'About',
+        'nav.contact':'Contact',
+        'nav.advice':'Aftercare',
+        'cta.bookNow':'Book Now',
+        'cta.openBooking':'Open WhatsApp Booking',
+        'cta.sendWhatsApp':'Send on WhatsApp',
+        'cta.viewTattoo':'View Tattoo Works',
+        'cta.viewBarber':'View Barber Works',
+        'cta.learnMore':'Learn more',
+        'cta.seeMore':'See more',
+        'a11y.skip':'Skip to main content',
+        'a11y.openMenu':'Open menu',
+        'a11y.backHome':'Back to home',
+        'home.eyebrow':'Meng Li Hair & Tattoo',
+        'home.title':'Meng Li Hair & Tattoo',
+        'home.subtitle':'Minimal black & rose-gold aesthetic—crafted with detail and restraint.',
+        'home.note':'Walk-ins (subject to availability) • Booking recommended',
+        'home.meetFounders':'Meet the Founders',
+        'home.bookTime':'Book your time',
+        'home.bookDesc':'Get the best version of your tattoo and style.',
+        'form.name':'Name',
+        'form.namePh':'Your name',
+        'form.contact':'Contact info',
+        'form.contactPh':'Phone / WeChat / IG / Email',
+        'form.service':'Service',
+        'form.message':'Message',
+        'form.messagePh':'Style, placement, budget, preferred time',
+
+        'page.about.html.eyebrow':'About',
+        'page.about.html.title':'Our Studio | Meng Li Hair & Tattoo',
+        'page.about.html.lead':'Build trust here: philosophy, hygiene & safety, process, and why we’re worth booking.',
+
+        'page.artists.html.eyebrow':'Team',
+        'page.artists.html.title':'Founders',
+        'page.artists.html.lead':'Driven by work and professionalism. Two founders, one standard: craft, taste, and experience.',
+
+        'page.barber.html.eyebrow':'Barber',
+        'page.barber.html.title':'Barber Services',
+        'page.barber.html.lead':'Service list & price guide (placeholder). Share your real menu and pricing later—we’ll upgrade the layout.',
+
+        'page.tattoo.html.eyebrow':'Tattoo',
+        'page.tattoo.html.title':'Tattoo Portfolio',
+        'page.tattoo.html.lead':'Let the work speak. Placeholder wall & structure—send your works and we’ll curate categories + lightbox.',
+
+        'page.contact.html.eyebrow':'Contact',
+        'page.contact.html.title':'Contact & Enquiries',
+        'page.contact.html.lead':'After submitting, you’ll jump to WhatsApp to send us your message. You can also reach us via the info below.',
+
+        'page.book.html.eyebrow':'Book',
+        'page.book.html.title':'Book Now',
+        'page.book.html.lead':'Connect this page to your booking system (Fresha/Calendly/WhatsApp), or use an embedded form.',
+
+        'page.advice.html.eyebrow':'Advice',
+        'page.advice.html.title':'Aftercare & Maintenance',
+        'page.advice.html.lead':'Tattoo aftercare and grooming tips. Great for SEO and reducing customer anxiety.'
+      },
+      ms: {
+        'nav.home':'Laman Utama',
+        'nav.tattoo':'Tatu',
+        'nav.barber':'Dandan Rambut',
+        'nav.artists':'Pengasas',
+        'nav.about':'Tentang',
+        'nav.contact':'Hubungi',
+        'nav.advice':'Penjagaan',
+        'cta.bookNow':'Tempah Sekarang',
+        'cta.openBooking':'Buka Tempahan WhatsApp',
+        'cta.sendWhatsApp':'Hantar melalui WhatsApp',
+        'cta.viewTattoo':'Lihat Hasil Tatu',
+        'cta.viewBarber':'Lihat Hasil Dandan',
+        'cta.learnMore':'Ketahui lanjut',
+        'cta.seeMore':'Lihat lagi',
+        'a11y.skip':'Langkau ke kandungan utama',
+        'a11y.openMenu':'Buka menu',
+        'a11y.backHome':'Kembali ke laman utama',
+        'home.eyebrow':'Meng Li Hair & Tattoo',
+        'home.title':'Meng Li Hair & Tattoo',
+        'home.subtitle':'Gaya minimal hitam & rose-gold—kemas, teliti, dan berdisiplin.',
+        'home.note':'Walk-in (bergantung ketersediaan) • Disyorkan tempahan',
+        'home.meetFounders':'Kenali Pengasas',
+        'home.bookTime':'Tempah masa anda',
+        'home.bookDesc':'Dapatkan versi terbaik tatu dan gaya anda.',
+        'form.name':'Nama',
+        'form.namePh':'Nama anda',
+        'form.contact':'Maklumat hubungan',
+        'form.contactPh':'Telefon / WeChat / IG / Emel',
+        'form.service':'Perkhidmatan',
+        'form.message':'Mesej',
+        'form.messagePh':'Gaya, bahagian, bajet, masa pilihan',
+
+        'page.about.html.eyebrow':'Tentang',
+        'page.about.html.title':'Studio Kami | Meng Li Hair & Tattoo',
+        'page.about.html.lead':'Bina kepercayaan: falsafah, kebersihan & keselamatan, proses, dan sebab berbaloi ditempah.',
+
+        'page.artists.html.eyebrow':'Pasukan',
+        'page.artists.html.title':'Pengasas',
+        'page.artists.html.lead':'Dibina atas hasil kerja dan profesionalisme. Dua pengasas, satu standard: kemahiran, cita rasa, pengalaman.',
+
+        'page.barber.html.eyebrow':'Dandan Rambut',
+        'page.barber.html.title':'Perkhidmatan Dandan Rambut',
+        'page.barber.html.lead':'Senarai servis & harga (contoh). Beri menu dan harga sebenar—kami akan naik taraf susun atur.',
+
+        'page.tattoo.html.eyebrow':'Tatu',
+        'page.tattoo.html.title':'Portfolio Tatu',
+        'page.tattoo.html.lead':'Biarkan hasil bercakap. Dinding contoh & struktur—hantar karya anda, kami susun kategori + lightbox.',
+
+        'page.contact.html.eyebrow':'Hubungi',
+        'page.contact.html.title':'Hubungi & Pertanyaan',
+        'page.contact.html.lead':'Selepas hantar, anda akan terus ke WhatsApp untuk menghantar mesej. Anda juga boleh guna info di bawah.',
+
+        'page.book.html.eyebrow':'Tempah',
+        'page.book.html.title':'Tempah Sekarang',
+        'page.book.html.lead':'Sambungkan laman ini ke sistem tempahan (Fresha/Calendly/WhatsApp), atau guna borang terbina.',
+
+        'page.advice.html.eyebrow':'Penjagaan',
+        'page.advice.html.title':'Penjagaan & Penyelenggaraan',
+        'page.advice.html.lead':'Penjagaan selepas tatu dan tip dandanan. Sesuai untuk SEO dan kurangkan kerisauan pelanggan.'
+      }
+    };
+
+    (function(){
+      var DEFAULT_LANG = 'zh';
+      function getLang(){
+        try{
+          return localStorage.getItem('site_lang') || DEFAULT_LANG;
+        } catch(e) {
+          return DEFAULT_LANG;
+        }
+      }
+      function setLang(lang){
+        if(!window.__i18n[lang]) lang = DEFAULT_LANG;
+        document.documentElement.setAttribute('data-lang', lang);
+        document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+        try { localStorage.setItem('site_lang', lang); } catch(e){}
+        document.querySelectorAll('[data-lang-btn]').forEach(function(btn){
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-lang-btn') === lang ? 'true' : 'false');
+        });
+        document.querySelectorAll('[data-i18n]').forEach(function(el){
+          var key = el.getAttribute('data-i18n');
+          var val = (window.__i18n[lang] && window.__i18n[lang][key]) || (window.__i18n[DEFAULT_LANG] && window.__i18n[DEFAULT_LANG][key]);
+          if(typeof val === 'string') el.textContent = val;
+        });
+        document.querySelectorAll('[data-i18n-attr]').forEach(function(el){
+          var spec = el.getAttribute('data-i18n-attr');
+          spec.split(';').forEach(function(pair){
+            pair = pair.trim();
+            if(!pair) return;
+            var parts = pair.split(':');
+            if(parts.length < 2) return;
+            var attr = parts[0].trim();
+            var key = parts.slice(1).join(':').trim();
+            var val = (window.__i18n[lang] && window.__i18n[lang][key]) || (window.__i18n[DEFAULT_LANG] && window.__i18n[DEFAULT_LANG][key]);
+            if(typeof val === 'string') el.setAttribute(attr, val);
+          });
+        });
+      }
+      document.addEventListener('click', function(e){
+        var btn = e.target.closest('[data-lang-btn]');
+        if(!btn) return;
+        e.preventDefault();
+        setLang(btn.getAttribute('data-lang-btn'));
+      });
+      setLang(getLang());
+    })();
+  </script>
+
+</body>
+</html>
