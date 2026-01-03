@@ -2,15 +2,15 @@
   const qs = (s, el = document) => el.querySelector(s);
   const qsa = (s, el = document) => Array.from(el.querySelectorAll(s));
 
-  // ---------------------------
-  // Footer year
-  // ---------------------------
+  /* =========================
+     Footer year
+  ========================= */
   const y = qs("[data-year]");
   if (y) y.textContent = String(new Date().getFullYear());
 
-  // ---------------------------
-  // Mobile menu toggle
-  // ---------------------------
+  /* =========================
+     Mobile menu
+  ========================= */
   const menuBtn = qs("[data-menu-button]");
   const mobileMenu = qs("[data-mobile-menu]");
 
@@ -26,34 +26,24 @@
       setMenuOpen(!open);
     });
 
-    mobileMenu.addEventListener("click", (e) => {
-      const a = e.target.closest("a");
-      if (a) setMenuOpen(false);
-    });
-
     window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && menuBtn.getAttribute("aria-expanded") === "true") setMenuOpen(false);
+      if (e.key === "Escape") setMenuOpen(false);
     });
   }
 
-  // ---------------------------
-  // Tattoo drawer portfolio (patched)
-
-  // ---------------------------
-  // Tattoo drawer portfolio (patched)
-  // ---------------------------
-  const overlay = qs("[data-drawer-overlay]");
-  const drawer = qs("[data-drawer]");
-  const closeBtn = qs("[data-drawer-close]");
-  const titleEl = qs("[data-drawer-title]");
-  const subEl = qs("[data-drawer-sub]");
+  /* =========================
+     Tattoo drawer portfolio
+  ========================= */
+  const overlay   = qs("[data-drawer-overlay]");
+  const drawer    = qs("[data-drawer]");
+  const closeBtn  = qs("[data-drawer-close]");
+  const titleEl   = qs("[data-drawer-title]");
+  const subEl     = qs("[data-drawer-sub]");
   const chipsWrap = qs("[data-filter-bar]");
   const worksWrap = qs("[data-works]");
 
-  // If drawer markup isn't on this page, safely exit
   if (!overlay || !drawer || !chipsWrap || !worksWrap) return;
 
-  // Ensure starts closed
   overlay.hidden = true;
   document.documentElement.classList.remove("is-locked");
 
@@ -64,24 +54,24 @@
       name: "A 纹身师",
       subtitle: "选择分类查看 A 纹身师作品。",
       works: [
-        { src: "images/TA01.png", cat: CATS[0] },
-        { src: "images/TA02.png", cat: CATS[1] },
-        { src: "images/TA03.png", cat: CATS[2] },
-        { src: "images/TA04.png", cat: CATS[3] },
-        { src: "images/TA05.png", cat: CATS[4] },
-        { src: "images/TA06.png", cat: CATS[5] },
+        { src: "images/TA01.png", cat: "黑灰" },
+        { src: "images/TA02.png", cat: "细线" },
+        { src: "images/TA03.png", cat: "传统" },
+        { src: "images/TA04.png", cat: "小图" },
+        { src: "images/TA05.png", cat: "字母/文字" },
+        { src: "images/TA06.png", cat: "客制" },
       ],
     },
     B: {
       name: "B 纹身师",
       subtitle: "选择分类查看 B 纹身师作品。",
       works: [
-        { src: "images/TB01.png", cat: CATS[0] },
-        { src: "images/TB02.png", cat: CATS[1] },
-        { src: "images/TB03.png", cat: CATS[2] },
-        { src: "images/TB04.png", cat: CATS[3] },
-        { src: "images/TB05.png", cat: CATS[4] },
-        { src: "images/TB06.png", cat: CATS[5] },
+        { src: "images/TB01.png", cat: "传统" },
+        { src: "images/TB02.png", cat: "小图" },
+        { src: "images/TB03.png", cat: "字母/文字" },
+        { src: "images/TB04.png", cat: "传统" },
+        { src: "images/TB05.png", cat: "小图" },
+        { src: "images/TB06.png", cat: "字母/文字" },
       ],
     },
   };
@@ -89,39 +79,46 @@
   let currentArtist = "A";
   let currentCat = "全部";
 
-  const renderChips = () => {
+  function renderChips() {
     const cats = ["全部", ...CATS];
     chipsWrap.innerHTML = "";
+
     cats.forEach((cat) => {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "chip";
-      b.setAttribute("aria-pressed", cat === currentCat ? "true" : "false");
-      b.textContent = cat;
-      b.addEventListener("click", () => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "chip";
+      btn.textContent = cat;
+      btn.setAttribute("aria-pressed", cat === currentCat ? "true" : "false");
+
+      btn.addEventListener("click", () => {
         currentCat = cat;
-        // update aria-pressed
-        Array.from(chipsWrap.children).forEach((n) => n.setAttribute("aria-pressed", n.textContent === currentCat ? "true" : "false"));
+        qsa(".chip", chipsWrap).forEach(b =>
+          b.setAttribute("aria-pressed", b.textContent === cat ? "true" : "false")
+        );
         renderWorks();
       });
-      chipsWrap.appendChild(b);
-    });
-  };
 
-  const renderWorks = () => {
+      chipsWrap.appendChild(btn);
+    });
+  }
+
+  function renderWorks() {
     const meta = portfolio[currentArtist];
-    const items = currentCat === "全部" ? meta.works : meta.works.filter((w) => w.cat === currentCat);
+    const list = currentCat === "全部"
+      ? meta.works
+      : meta.works.filter(w => w.cat === currentCat);
 
     worksWrap.innerHTML = "";
-    if (!items.length) {
-      const empty = document.createElement("p");
-      empty.className = "muted";
-      empty.textContent = "该分类暂时没有作品。";
-      worksWrap.appendChild(empty);
+
+    if (!list.length) {
+      const p = document.createElement("p");
+      p.className = "muted";
+      p.textContent = "该分类暂无作品。";
+      worksWrap.appendChild(p);
       return;
     }
 
-    items.forEach((w, i) => {
+    list.forEach((w, i) => {
       const fig = document.createElement("figure");
       fig.className = "work-item";
 
@@ -138,42 +135,39 @@
       fig.appendChild(cap);
       worksWrap.appendChild(fig);
     });
-  };
+  }
 
-  const openDrawer = (artistKey) => {
-    currentArtist = artistKey in portfolio ? artistKey : "A";
+  function openDrawer(key) {
+    currentArtist = portfolio[key] ? key : "A";
     currentCat = "全部";
 
-    if (titleEl) titleEl.textContent = "作品集";
-    if (subEl) subEl.textContent = portfolio[currentArtist].subtitle || "";
+    titleEl.textContent = "作品集";
+    subEl.textContent = portfolio[currentArtist].subtitle;
 
     renderChips();
     renderWorks();
 
     overlay.hidden = false;
     document.documentElement.classList.add("is-locked");
-    if (closeBtn) closeBtn.focus();
-  };
+  }
 
-  const closeDrawer = () => {
+  function closeDrawer() {
     overlay.hidden = true;
     document.documentElement.classList.remove("is-locked");
-  };
+  }
 
-  // Bind open buttons
-  qsa("[data-open-drawer]").forEach((b) => {
-    b.addEventListener("click", () => {
-      openDrawer(b.getAttribute("data-open-drawer") || "A");
+  qsa("[data-open-drawer]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      openDrawer(btn.getAttribute("data-open-drawer"));
     });
   });
 
-  // Close interactions
   if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
   overlay.addEventListener("click", (e) => {
     if (e.target === overlay) closeDrawer();
   });
   window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && overlay && overlay.hidden === false) closeDrawer();
+    if (e.key === "Escape" && !overlay.hidden) closeDrawer();
   });
 
 })();
