@@ -13,7 +13,7 @@
     .lang-switch{display:flex;gap:8px;align-items:center}
     .lang-switch .lang-btn{border:1px solid rgba(255,255,255,.25);background:transparent;color:inherit;padding:6px 10px;border-radius:999px;font-size:12px;cursor:pointer}
     .lang-switch .lang-btn[aria-pressed="true"]{background:rgba(255,255,255,.12)}
-    @media (max-width: 720px){ .lang-switch{display:none;} }
+    @media (max-width: 720px){ .lang-switch{display:flex; flex-wrap:wrap;} }
   </style>
 </head>
 <body>
@@ -90,11 +90,11 @@
       <div class="container">
         <div class="grid-2">
           <article class="artist" id="founder-a">
-            <img src="images/MRT.png" alt="MR.T 肖像" />
+            <img src="images/MRT.png" alt="MR.T 肖像" data-i18n-attr="alt:artists.mrt.alt" />
             <div class="artist-caption">
               <h2 class="artist-name">MR.T</h2>
-              <p class="artist-role">纹身 • 东方传统 / 大面积作品</p>
-              <p class="muted" style="white-space:pre-line">纹身师｜MR.T
+              <p class="artist-role" data-i18n="artists.mrt.role">纹身 • 东方传统 / 大面积作品</p>
+              <p class="muted" style="white-space:pre-line" data-i18n="artists.mrt.bio">纹身师｜MR.T
 
 MR.T 来自中国，是一位擅长东方传统纹身风格的专业纹身艺术家。
 其作品以扎实的构图、细腻的层次与高度完成度闻名，长期专注于大面积作品与传统题材的当代诠释。
@@ -105,11 +105,11 @@ MR.T 来自中国，是一位擅长东方传统纹身风格的专业纹身艺术
           </article>
 
           <article class="artist" id="founder-b">
-            <img src="images/MRL.png" alt="MRL 肖像" />
+            <img src="images/MRL.png" alt="MRL 肖像" data-i18n-attr="alt:artists.mrl.alt" />
             <div class="artist-caption">
               <h2 class="artist-name">MRL</h2>
-              <p class="artist-role">理发 • 经典 / 现代</p>
-              <p class="muted" style="white-space:pre-line">理发师｜MRL
+              <p class="artist-role" data-i18n="artists.mrl.role">理发 • 经典 / 现代</p>
+              <p class="muted" style="white-space:pre-line" data-i18n="artists.mrl.bio">理发师｜MRL
 
 MRL 来自中国，是一位在业界具有高度辨识度的专业理发师。
 多年来持续参与国际理发赛事，并于多项比赛中获得冠军与重要奖项，技术实力与创作水准屡获肯定。
@@ -229,7 +229,25 @@ MRL 来自中国，是一位在业界具有高度辨识度的专业理发师。
         'page.advice.html.eyebrow':'Advice',
         'page.advice.html.title':'术后护理与保养',
         'page.advice.html.lead':'纹身护理与造型保养。本页适合做 SEO，也能降低客户不安感。'
-      },
+              'artists.mrt.alt':'MR.T 肖像',
+        'artists.mrl.alt':'MRL 肖像',
+        'artists.mrt.role':'纹身 • 东方传统 / 大面积作品',
+        'artists.mrl.role':'理发 • 经典 / 现代',
+        'artists.mrt.bio':'Artis Tatu | MR.T
+
+MR.T ialah artis tatu profesional dari China yang pakar dalam gaya tradisional Timur.
+Beliau dikenali dengan komposisi yang kukuh, lapisan yang halus, dan tahap kemasan yang tinggi—dengan fokus jangka panjang pada karya berskala besar serta tafsiran moden bagi tema tradisi.
+
+Selama bertahun-tahun, MR.T aktif di pelbagai negara dan bandar di Asia Tenggara melalui sesi guest spot dan projek berterusan, lalu mengumpul pengalaman praktikal antarabangsa yang luas.
+Beliau juga pernah menyertai pertandingan tatu antarabangsa dan menerima anugerah/pengiktirafan, menjadikan karyanya diyakini oleh rakan industri serta pelanggan.',
+        'artists.mrl.bio':'Barber | MRL
+
+MRL ialah barber profesional dari China dengan identiti kerja yang sangat tersendiri.
+Beliau telah lama menyertai pertandingan barber antarabangsa dan memenangi kejuaraan serta anugerah penting, yang mengiktiraf kemahiran teknikal dan standard kreatifnya.
+
+Dalam bidang ini, MRL terkenal dengan asas potongan yang kukuh, kawalan struktur yang tepat, dan hasil akhir yang konsisten kemas, serta mempunyai pengalaman mendalam dalam reka bentuk rambut lelaki.
+Beliau juga dianggap antara barber yang mewakili China, dan karya serta gaya teknikalnya memberi pengaruh kepada generasi barber yang lebih muda.',
+},
       en: {
         'nav.home':'Home',
         'nav.tattoo':'Tattoo',
@@ -290,7 +308,25 @@ MRL 来自中国，是一位在业界具有高度辨识度的专业理发师。
         'page.advice.html.eyebrow':'Advice',
         'page.advice.html.title':'Aftercare & Maintenance',
         'page.advice.html.lead':'Tattoo aftercare and grooming tips. Great for SEO and reducing customer anxiety.'
-      },
+              'artists.mrt.alt':'Portrait of MR.T',
+        'artists.mrl.alt':'Portrait of MRL',
+        'artists.mrt.role':'Tattoo · Oriental Traditional / Large-scale Works',
+        'artists.mrl.role':'Barber · Classic / Modern',
+        'artists.mrt.bio':'Tattoo Artist | MR.T
+
+MR.T is a professional tattoo artist from China, specializing in Oriental traditional styles.
+He is known for strong composition, refined layering, and a high level of finish, with a long-term focus on large-scale pieces and contemporary interpretations of classic subjects.
+
+Over the years, MR.T has worked across multiple countries and cities in Southeast Asia through guest spots and ongoing projects, building extensive international, hands-on experience.
+He has also taken part in international tattoo competitions and received awards in multiple events, earning recognition from both peers and clients.',
+        'artists.mrl.bio':'Barber | MRL
+
+MRL is a highly distinctive professional barber from China.
+He has participated in international barbering competitions for years and has won championships and major awards, reflecting both technical skill and creative standards.
+
+In his field, MRL is known for strong fundamentals, precise structural control, and consistently polished results, with deep practical expertise in men’s hair design.
+He is also regarded as one of the representative barbers in China, and his work and technique have had a strong influence on the younger generation of barbers.',
+},
       ms: {
         'nav.home':'Laman Utama',
         'nav.tattoo':'Tatu',
@@ -351,7 +387,25 @@ MRL 来自中国，是一位在业界具有高度辨识度的专业理发师。
         'page.advice.html.eyebrow':'Penjagaan',
         'page.advice.html.title':'Penjagaan & Penyelenggaraan',
         'page.advice.html.lead':'Penjagaan selepas tatu dan tip dandanan. Sesuai untuk SEO dan kurangkan kerisauan pelanggan.'
-      }
+              'artists.mrt.alt':'Potret MR.T',
+        'artists.mrl.alt':'Potret MRL',
+        'artists.mrt.role':'Tatu · Tradisional Timur / Karya Berskala Besar',
+        'artists.mrl.role':'Barber · Klasik / Moden',
+        'artists.mrt.bio':'Artis Tatu | MR.T
+
+MR.T ialah artis tatu profesional dari China yang pakar dalam gaya tradisional Timur.
+Beliau dikenali dengan komposisi yang kukuh, lapisan yang halus, dan tahap kemasan yang tinggi—dengan fokus jangka panjang pada karya berskala besar serta tafsiran moden bagi tema tradisi.
+
+Selama bertahun-tahun, MR.T aktif di pelbagai negara dan bandar di Asia Tenggara melalui sesi guest spot dan projek berterusan, lalu mengumpul pengalaman praktikal antarabangsa yang luas.
+Beliau juga pernah menyertai pertandingan tatu antarabangsa dan menerima anugerah dalam beberapa acara, menjadikan hasil kerjanya diiktiraf oleh rakan industri serta pelanggan.',
+        'artists.mrl.bio':'Barber | MRL
+
+MRL ialah barber profesional dari China dengan identiti kerja yang sangat tersendiri.
+Beliau telah lama menyertai pertandingan barber antarabangsa dan memenangi kejuaraan serta anugerah penting, yang mengiktiraf kemahiran teknikal dan standard kreatifnya.
+
+Dalam bidang ini, MRL terkenal dengan asas potongan yang kukuh, kawalan struktur yang tepat, dan hasil akhir yang konsisten kemas, serta mempunyai pengalaman mendalam dalam reka bentuk rambut lelaki.
+Beliau juga dianggap antara barber yang mewakili China, dan karya serta tekniknya memberi pengaruh besar kepada generasi barber muda.',
+}
     };
 
     (function(){

@@ -32,8 +32,50 @@
     .lang-switch{display:flex;gap:8px;align-items:center}
     .lang-switch .lang-btn{border:1px solid rgba(255,255,255,.25);background:transparent;color:inherit;padding:6px 10px;border-radius:999px;font-size:12px;cursor:pointer}
     .lang-switch .lang-btn[aria-pressed="true"]{background:rgba(255,255,255,.12)}
-    @media (max-width: 720px){ .lang-switch{display:none;} }
+    @media (max-width: 720px){ .lang-switch{display:flex; flex-wrap:wrap;} }
   </style>
+
+  <style>
+    /* Artist cards */
+    .artist-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    @media (max-width: 720px){ .artist-grid{grid-template-columns:1fr;} }
+    .artist-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:18px;overflow:hidden;display:grid;grid-template-columns:160px 1fr;min-height:160px}
+    @media (max-width: 720px){ .artist-card{grid-template-columns:120px 1fr;} }
+    .artist-card img{width:100%;height:100%;object-fit:cover;display:block}
+    .artist-body{padding:14px 14px 16px}
+    .artist-name{margin:0 0 6px;font-size:18px;letter-spacing:.2px}
+    .artist-meta{margin:0 0 10px;opacity:.85;font-size:13px;line-height:1.55}
+    .artist-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px;padding:0;list-style:none}
+    .artist-tags li{font-size:12px;border:1px solid rgba(255,255,255,.18);padding:4px 10px;border-radius:999px;opacity:.9}
+    .artist-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.22)}
+    .btn.btn-ghost:hover{background:rgba(255,255,255,.06)}
+
+    /* Drawer (side panel) */
+    .drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(2px);z-index:999;display:flex;justify-content:flex-end}
+    .drawer-overlay[hidden]{display:none !important;}
+
+    .drawer{width:min(520px, 92vw);height:100%;background:#0f0f12;border-left:1px solid rgba(255,255,255,.12);box-shadow:0 24px 60px rgba(0,0,0,.6);display:flex;flex-direction:column}
+    .drawer-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:16px;border-bottom:1px solid rgba(255,255,255,.10)}
+    .drawer-title{margin:0;font-size:18px}
+    .drawer-sub{margin:4px 0 0;opacity:.85;font-size:12px;line-height:1.5}
+    .drawer-close{background:transparent;border:1px solid rgba(255,255,255,.18);color:inherit;border-radius:999px;padding:6px 10px;cursor:pointer}
+    .drawer-body{padding:14px 16px 18px;overflow:auto}
+    .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+    .chip{border:1px solid rgba(255,255,255,.18);background:transparent;color:inherit;border-radius:999px;padding:6px 10px;font-size:12px;cursor:pointer}
+    .chip[aria-pressed="true"]{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28)}
+    .works-masonry{column-count:2;column-gap:12px}
+    @media (max-width: 420px){ .works-masonry{column-count:1;} }
+    .work-item{break-inside:avoid;margin:0 0 12px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03)}
+    .work-item img{width:100%;height:auto;display:block}
+    .work-cap{padding:10px 10px 12px}
+    .work-cap .cap-title{margin:0 0 6px;font-size:12px;opacity:.9}
+    .work-cap .cap-meta{margin:0;font-size:11px;opacity:.7}
+
+    /* Disable body scroll when drawer open */
+    html.is-locked, html.is-locked body{overflow:hidden}
+  </style>
+
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="a11y.skip">跳到主要内容</a>
@@ -105,23 +147,87 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <h2 class="section-title">作品墙</h2>
-            <p class="section-desc">示意作品墙（占位图）。</p>
+            <h2 class="section-title">纹身师</h2>
+            <p class="section-desc">选择一位纹身师，查看个人风格与作品集。</p>
           </div>
-          <span class="badge">筛选（下一步做 JS）</span>
+          <span class="badge">作品集在抽屉中打开</span>
         </div>
 
-        <div class="gallery" aria-label="作品集">
-          <figure class="thumb thumb--focus"><img src="images/000001.png" alt="作品 1" /><figcaption style="display:none">黑灰</figcaption></figure>
-          <figure class="thumb thumb--focus"><img src="images/000002.png" alt="作品 2" /><figcaption style="display:none">细线</figcaption></figure>
-          <figure class="thumb"><img src="images/000003.png" alt="作品 3" /><figcaption style="display:none">传统</figcaption></figure>
-          <figure class="thumb"><img src="images/000004.png" alt="作品 4" /><figcaption style="display:none">小图</figcaption></figure>
-          <figure class="thumb"><img src="images/000005.png" alt="作品 5" /><figcaption style="display:none">字母/文字</figcaption></figure>
-          <figure class="thumb"><img src="images/000006.png" alt="作品 6" /><figcaption style="display:none">客制</figcaption></figure>
+        <div class="artist-grid">
+          <article class="artist-card">
+            <img src="images/TA1.PNG" alt="A 纹身师" />
+            <div class="artist-body">
+              <h3 class="artist-name">A 纹身师</h3>
+              <p class="artist-meta">偏好黑灰、细线与客制设计。你可以把想法、部位与预算告诉我，我会给出更合适的构图建议。</p>
+              <ul class="artist-tags" aria-label="风格标签">
+                <li>黑灰</li><li>细线</li><li>客制</li>
+              </ul>
+              <div class="artist-actions">
+                <button class="btn btn-primary" type="button" data-open-drawer="A">查看作品集</button>
+                <a class="btn btn-ghost" href="https://wa.me/60176775237" data-wa>咨询 / 预约</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="artist-card">
+            <img src="images/TB1.PNG" alt="B 纹身师" />
+            <div class="artist-body">
+              <h3 class="artist-name">B 纹身师</h3>
+              <p class="artist-meta">偏好传统、小图与文字类设计。适合想要干净俐落、耐看的日常纹身。</p>
+              <ul class="artist-tags" aria-label="风格标签">
+                <li>传统</li><li>小图</li><li>字母/文字</li>
+              </ul>
+              <div class="artist-actions">
+                <button class="btn btn-primary" type="button" data-open-drawer="B">查看作品集</button>
+                <a class="btn btn-ghost" href="https://wa.me/60176775237" data-wa>咨询 / 预约</a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">精选作品</h2>
+            <p class="section-desc">点选上方纹身师即可打开完整作品集（抽屉）。</p>
+          </div>
+          <span class="badge">抽屉内可筛选</span>
+        </div>
+
+        
+        <div class="gallery" aria-label="精选作品预览">
+          <figure class="thumb thumb--focus"><img src="images/TA01.PNG" alt="A 作品 1" /><figcaption style="display:none">黑灰</figcaption></figure>
+          <figure class="thumb thumb--focus"><img src="images/TA02.PNG" alt="A 作品 2" /><figcaption style="display:none">细线</figcaption></figure>
+          <figure class="thumb"><img src="images/TA03.PNG" alt="A 作品 3" /><figcaption style="display:none">客制</figcaption></figure>
+          <figure class="thumb"><img src="images/TB01.PNG" alt="B 作品 1" /><figcaption style="display:none">传统</figcaption></figure>
+          <figure class="thumb"><img src="images/TB02.PNG" alt="B 作品 2" /><figcaption style="display:none">小图</figcaption></figure>
+          <figure class="thumb"><img src="images/TB03.PNG" alt="B 作品 3" /><figcaption style="display:none">字母/文字</figcaption></figure>
+        </div>
+</div>
+    </section>
   </main>
+
+  <!-- Drawer: Tattoo Portfolio -->
+  <div class="drawer-overlay" hidden data-drawer-overlay>
+    <aside class="drawer" role="dialog" aria-modal="true" aria-label="作品集抽屉" data-drawer>
+      <div class="drawer-head">
+        <div>
+          <h3 class="drawer-title" data-drawer-title>作品集</h3>
+          <p class="drawer-sub" data-drawer-sub>选择分类筛选作品。</p>
+        </div>
+        <button class="drawer-close" type="button" data-drawer-close aria-label="关闭">✕</button>
+      </div>
+
+      <div class="drawer-body">
+        <div class="filter-bar" role="group" aria-label="分类筛选" data-filter-bar></div>
+        <div class="works-masonry" data-works></div>
+      </div>
+    </aside>
+  </div>
+
 <footer class="site-footer" aria-label="頁尾資訊">
     <div class="container footer-inner">
       <div class="footer-col">
